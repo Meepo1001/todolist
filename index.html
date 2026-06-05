@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的待办清单</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="todo-panel" aria-labelledby="app-title">
+        <header class="app-header">
+          <div>
+            <h1 id="app-title"><span aria-hidden="true">📝</span> 我的待办清单</h1>
+            <p>把今天拆成一件件轻松完成的小事。</p>
+          </div>
+          <button class="ghost-button" id="summaryButton" type="button">今日成果</button>
+        </header>
+
+        <form class="task-form" id="taskForm">
+          <label class="sr-only" for="taskInput">任务内容</label>
+          <input id="taskInput" type="text" placeholder="今天要做什么？" autocomplete="off" required>
+
+          <div class="controls-row">
+            <label class="select-wrap priority-select">
+              <span>重要度</span>
+              <select id="prioritySelect" aria-label="选择重要程度">
+                <option value="high">高</option>
+                <option value="medium" selected>中</option>
+                <option value="low">低</option>
+              </select>
+            </label>
+
+            <label class="select-wrap time-select">
+              <span>计划用时</span>
+              <input id="timeInput" type="number" min="10" max="120" step="10" value="30" aria-label="计划用时，分钟">
+            </label>
+
+            <button class="primary-button" type="submit"><span class="button-plus">＋</span> 添加任务</button>
+          </div>
+        </form>
+
+        <div class="stats-bar" aria-live="polite">
+          <span>未完成 <strong id="pendingCount">0</strong></span>
+          <span>已完成 <strong id="completedCount">0</strong></span>
+        </div>
+
+        <div class="actions-row">
+          <button class="soft-button" id="clearCompletedButton" type="button">清空已完成</button>
+          <button class="soft-button" id="exportButton" type="button">生成Excel表格</button>
+          <button class="danger-button" id="clearAllButton" type="button">全部清空</button>
+        </div>
+
+        <ul class="task-list" id="taskList" aria-label="待办任务列表"></ul>
+
+        <p class="empty-state" id="emptyState">现在还没有任务，给今天安排一个温柔的小目标吧。</p>
+      </section>
+    </main>
+
+    <dialog class="summary-dialog" id="summaryDialog">
+      <div class="summary-card">
+        <header>
+          <h2>今日成果</h2>
+          <button class="icon-button" id="closeSummaryButton" type="button" aria-label="关闭">×</button>
+        </header>
+        <div class="summary-grid" id="summaryContent"></div>
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
