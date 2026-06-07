@@ -1,0 +1,19 @@
+{
+  "name": "我的待办清单",
+  "short_name": "待办清单",
+  "description": "一个支持每日任务、工作日历、目标计划和项目计划的本地待办应用。",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#dff3ff",
+  "theme_color": "#2388ff",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
